@@ -31,6 +31,7 @@ app.delete('/notes/:id', (req, res) => {
     let data = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
 
     const newList = data.filter(note => note.id -1 !== noteId -1);
+    //For some reason this wouldn't work without subtracting both sides by 1
 
     fs.writeFileSync('./db/db.json', JSON.stringify(newList));
     
